@@ -6,6 +6,7 @@
  *
  * To Do:
  * - es gibt nur ein grösseres Feld – was, wenn es mehrere wären?
+ * - es braucht einen fallback, falls die dimensionen des grösseren feldes die anzahl felder des basisrasters übersteigt
  */
 
 function draw() {
@@ -13,7 +14,7 @@ function draw() {
 
   // basic grid field dimensions
   var rasterFieldWidth = 48;
-  var rasterFieldHeight = 64;
+  var rasterFieldHeight = 54;
 
   // number of fields in horizontal and vertical direction
   var fieldsH = Math.round( ( b.width - ( rasterFieldWidth / 2 ) ) / rasterFieldWidth );
@@ -52,7 +53,7 @@ function draw() {
 
   // define larger field that is painted on top of the basic grid
   var scaleFactor_h = 4;
-  var scaleFactor_v = 6;
+  var scaleFactor_v = 3;
   var raster2fieldWidth = scaleFactor_h * rasterFieldWidth;
   var raster2fieldHeight = scaleFactor_v * rasterFieldHeight;
 
@@ -76,8 +77,7 @@ function draw() {
     raster1coords.splice( indexesToDelete[ i ], 1 );
   }
 
-  // b.textSize( rasterFieldHeight / 2 );
-  b.textSize( 6 );
+  b.textSize( rasterFieldHeight * 0.4 );
   b.textFont( "Input" );
   b.translate( offsetH, offsetV );
 
@@ -91,7 +91,6 @@ function draw() {
   for ( var i = 0; i < raster2coords.length; i++ ) {
     b.rect( raster2coords[ i ].x, raster2coords[ i ].y, raster2fieldWidth, raster2fieldHeight );
   }
-
 }
 
 // Find an arbitrary origin for the larger field we want to draw.

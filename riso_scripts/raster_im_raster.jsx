@@ -6,7 +6,7 @@
  *
  * To Do:
  * - es gibt nur ein grösseres Feld – was, wenn es mehrere wären?
- * - es braucht einen fallback, falls die dimensionen des grösseren feldes die anzahl felder des basisrasters übersteigt
+ * - es braucht einen Fallback, falls die Dimensionen des grösseren Feldes die Anzahl Felder des Basisrasters übersteigt.
  */
 
 function draw() {
